@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frogger Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <h1>Frogger</h1>
+
+        <div class="controls">
+            <label for="difficulty-select">Difficulty:</label>
+            <select id="difficulty-select">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <button id="start-button">Start Game</button>
+        </div>
+
+        <div id="game-container">
+            <div id="game-area">
+                <!-- Game elements will be dynamically inserted here -->
+            </div>
+            <div id="status-area">
+                <p>Score: <span id="score">0</span></p>
+                <p>Lives: <span id="lives">3</span></p>
+                <p id="message"></p>
+            </div>
+        </div>
+
+        <div class="dpad-controls">
+            <button id="up-button" aria-label="Move Up">▲</button>
+            <div class="horizontal-buttons">
+                <button id="left-button" aria-label="Move Left">◀</button>
+                <button id="right-button" aria-label="Move Right">▶</button>
+            </div>
+            <button id="down-button" aria-label="Move Down">▼</button>
+        </div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "nanoid": "https://cdn.jsdelivr.net/npm/nanoid@5.0.7/nanoid.js"
+            }
+        }
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

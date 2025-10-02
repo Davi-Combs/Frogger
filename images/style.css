@@ -1,0 +1,191 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #282c34;
+    font-family: 'Press Start 2P', cursive; /* Consider importing a pixel-art font like Press Start 2P */
+    color: #eee;
+    overflow: hidden; /* Prevent scrollbars */
+    box-sizing: border-box;
+}
+
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #3a404a;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #4CAF50; /* Frogger green */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+select, button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #61dafb;
+    color: #282c34;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #21a1f1;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    box-sizing: border-box;
+}
+
+#game-area {
+    position: relative;
+    border: 2px solid #555;
+    background-color: #1a1a1a; /* Base dark background */
+    overflow: hidden; /* Crucial for wraparound elements */
+    box-sizing: border-box;
+}
+
+/* Individual game elements */
+.frog {
+    position: absolute;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    background-image: url('asset_frog.png');
+    background-size: contain; /* Ensure image fits within bounds */
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.05s ease-out; /* Smooth movement */
+    z-index: 10;
+}
+
+.car {
+    position: absolute;
+    height: var(--cell-size);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+}
+
+.log {
+    position: absolute;
+    height: var(--cell-size);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 5;
+}
+
+/* Lane styles */
+.lane {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.lane.grass {
+    background-color: #4CAF50; /* Green */
+}
+
+.lane.road {
+    background-color: #333; /* Dark grey */
+    border-top: 1px dashed #555;
+    border-bottom: 1px dashed #555;
+}
+
+.lane.river {
+    background-color: #1e90ff; /* Blue */
+}
+
+.lane.goal {
+    background-color: #6a0dad; /* Purple for goal area */
+}
+
+.lily-pad {
+    position: absolute;
+    background-color: #a4508b; /* A lighter purple for empty lily pads */
+    border-radius: 50%;
+    border: 2px solid #8e44ad;
+    opacity: 0.7;
+}
+
+.lily-pad.filled {
+    background-color: #4CAF50; /* Green when filled */
+    border: 2px solid #2e8b57;
+    opacity: 1;
+}
+
+/* Status Area */
+#status-area {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid #555;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+#status-area p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+#message {
+    color: #ffc107;
+    font-weight: bold;
+    margin-top: 10px;
+    min-height: 1.2em; /* Prevent layout shift */
+}
+
+/* D-pad Controls */
+.dpad-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 5px;
+}
+
+.dpad-controls button {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.dpad-controls .horizontal-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.dpad-controls .horizontal-buttons button {
+    width: 60px;
+    height: 60px;
+}
